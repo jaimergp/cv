@@ -1,0 +1,100 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[14pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=2cm, top=1.0cm, right=2cm, bottom=2.0cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-orange}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\enskip\bullet\enskip}
+
+\renewcommand{\baselinestretch}{1.05}
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+\photo[rectangle,noedge,right]{./contents/img/profile.jpg}
+\name{Jaime}{Rodríguez-Guerra}
+\position{~}
+%\address{}
+
+%\mobile{}
+\email{jaime.rogue@gmail.com}
+\homepage{rjai.me}
+\github{jaimergp}
+\twitter{@jaime\_rgp}
+\orcid{0000-0001-8974-1566}
+%\researchgate{Jaime\_Rodriguez-Guerra\_Pedregal}
+\googlescholar{imKyayEAAAAJ}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {Jaime Rodríguez-Guerra~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+\input{contents/skills.tex}
+\input{contents/education.tex}
+\input{contents/projects.tex}
+\input{contents/publications.tex}
+\input{contents/presentation.tex}
+\newpage
+\input{contents/teaching.tex}
+\input{contents/supervision.tex}
+\input{contents/references.tex}
+
+
+%-------------------------------------------------------------------------------
+\end{document}
