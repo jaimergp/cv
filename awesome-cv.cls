@@ -207,6 +207,9 @@
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
+\newcommand*{\letterheaderfirstnamestyle}[1]{{\fontsize{20pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\letterheaderlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\bfseries\color{text} #1}}
+
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
@@ -779,31 +782,49 @@
 % Define a title of the cover letter
 % Usage: \makelettertitle
 \newcommand*{\makelettertitle}{%
-  \vspace{8.4mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \recipienttitlestyle{\@recipientname} & \letterdatestyle{\@letterdate}
-  \end{tabular*}
+  \recipienttitlestyle{\@recipientname}
   \begin{singlespace}
     \recipientaddressstyle{\@recipientaddress} \\\\
   \end{singlespace}
-  \ifthenelse{\isundefined{\@lettertitle}}
-    {}
-    {\lettertitlestyle{\@lettertitle} \\\\}
+}
+
+
+\newcommand*{\makeletterheader}[1][C]{%
+  \newlength{\letterheadertextwidth}
+  \newlength{\letterheaderaddresswidth}
+  \setlength{\letterheadertextwidth}{0.5\textwidth}
+  \setlength{\letterheaderaddresswidth}{0.5\textwidth}
+  \begin{minipage}[t]{\letterheaderaddresswidth}%
+    \makelettertitle
+  \end{minipage}
+  \begin{minipage}[t]{\letterheadertextwidth}
+    \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
+    \letterheaderfirstnamestyle{\@firstname}\letterheaderlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
+    \\[\acvHeaderAfterNameSkip]%
+    \headersocialstyle{%
+      \faHome\acvHeaderIconSep\@address\\%
+      \faMobile\acvHeaderIconSep\@mobile \acvHeaderSocialSep %
+      \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
+    }%
+  \end{minipage}%
+  \\
+  \lettertitlestyle{\@lettertitle} \hfill \letterdatestyle{\@letterdate}\\\\
   \lettertextstyle{\@letteropening}
 }
 
+
 % Define a closing of the cover letter
 % Usage: \makeletterclosing
+\newcommand*{\signature}[1]{\def\@signature{#1}}
 \newcommand*{\makeletterclosing}{%
-  \vspace{3.4mm}
-  \lettertextstyle{\@letterclosing} \\\\
-  \letternamestyle{\@firstname\ \@lastname}
+  \vspace{12mm}
+  \lettertextstyle{\@letterclosing}\\
+  \hspace{10mm} \includegraphics[height=25mm]{\@signature}\\
+  \letternamestyle{\@firstname\ \@lastname}\\
   \ifthenelse{\isundefined{\@letterenclosure}}
-    {\\}
+    {}
     {%
-      \\\\\\
-      \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
+      \letterenclosurestyle{\vspace*{\fill} \\
+      \@letterenclname: \@letterenclosure} \\
     }
 }
