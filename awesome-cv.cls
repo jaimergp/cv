@@ -714,8 +714,8 @@
       \entrytitlestyle{#2} & \yearentrystyle{#3} \\
       \multicolumn{2}{L{\textwidth}}{\citationstyle{#1}%
           \entrydatestyle{
-          \ifempty{#7}{}{~~\cdot~~ \aiDoi\acvHeaderIconSep\href{https://doi.org/#7}{#7}}
-          \hspace*{\fill}\ifempty{#4}{}{~~\cdot~~ \faGithub\acvHeaderIconSep\href{https://github.com/#4}{#4}}}} \\
+          \ifempty{#7}{}{~~~~~ \aiDoi\acvHeaderIconSep\href{https://doi.org/#7}{#7}}
+          \hspace*{\fill}\ifempty{#4}{}{~~~~~ \faGithub\acvHeaderIconSep\href{https://github.com/#4}{#4}}}} \\
       \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
     \end{tabularx}%
   }{
@@ -729,8 +729,8 @@
         \entrytitlestyle{#2} & \yearentrystyle{#3} \\
         \multicolumn{2}{L{\textwidth}}{\citationstyle{#1}%
           \entrydatestyle{
-          \ifempty{#7}{}{~~\cdot~~ \aiDoi\acvHeaderIconSep\href{https://doi.org/#7}{#7}}
-          \hspace*{\fill}\ifempty{#4}{}{~~\cdot~~ \faGithub\acvHeaderIconSep\href{https://github.com/#4}{#4}}}} \\
+          \ifempty{#7}{}{~~~~~ \aiDoi\acvHeaderIconSep\href{https://doi.org/#7}{#7}}
+          \hspace*{\fill}\ifempty{#4}{}{~~~~~ \faGithub\acvHeaderIconSep\href{https://github.com/#4}{#4}}}} \\
         \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
       \end{tabularx}%
     \end{minipage}%
@@ -745,7 +745,7 @@
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \entrytitlestyle{#1} & \yearentrystyle{#3} \\
-    \citationstyle{#2} & \entrydatestyle{\hspace*{\fill}\ifempty{#4}{}{~~\cdot~~ \faGithub\acvHeaderIconSep\href{https://github.com/#4}{#4}}} \\
+    \citationstyle{#2} & \entrydatestyle{\hspace*{\fill}\ifempty{#4}{}{~~~~~ \faGithub\acvHeaderIconSep\href{https://github.com/#4}{#4}}} \\
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
