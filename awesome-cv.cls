@@ -819,7 +819,9 @@
 \newcommand*{\makeletterclosing}{%
   \vspace{12mm}
   \lettertextstyle{\@letterclosing}\\
-  \hspace{10mm} \includegraphics[height=25mm]{\@signature}\\
+  \ifthenelse{\isundefined{\@signature}}
+    {\\}
+    {\hspace{10mm} \includegraphics[height=25mm]{\@signature}\\}
   \letternamestyle{\@firstname\ \@lastname}\\
   \ifthenelse{\isundefined{\@letterenclosure}}
     {}
