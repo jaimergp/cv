@@ -822,7 +822,7 @@
   \ifthenelse{\isundefined{\@signature}}
     {\\}
     {\hspace{10mm} \includegraphics[height=25mm]{\@signature}\\}
-  \letternamestyle{\@firstname\ \@lastname}\\
+  \letternamestyle{\@firstname\ \@lastname.}\\
   \ifthenelse{\isundefined{\@letterenclosure}}
     {}
     {%
