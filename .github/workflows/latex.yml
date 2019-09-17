@@ -9,7 +9,7 @@ jobs:
       - name: Install LaTeX
         run: sudo apt install texlive-full
       - name: Install fonts
-        run: mkdir -p ~/.fonts && cp fonts/* ~/.font && fc-cache -fv
+        run: mkdir -p ~/.fonts && cp fonts/* ~/.fonts && fc-cache -fv
       - name: Compile cv.tex
         run: xelatex -synctex=1 -interaction=nonstopmode -file-line-error cv.tex
       - name: Upload PDF
